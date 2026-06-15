@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Self-Improving MCP — Based on Real User Experience</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Animated background -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+
+  <!-- Progress bar -->
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+  <!-- Slide counter -->
+  <div class="hud" id="hud">
+    <span id="slideNum">01</span><span class="hud-sep">/</span><span id="slideTotal">07</span>
+  </div>
+
+  <main id="deck">
+
+    <!-- SLIDE 1 — Title -->
+    <section class="slide" data-anim="title">
+      <div class="slide-inner center">
+        <div class="kicker fade" data-d="0">SELF-IMPROVING SOFTWARE · 01</div>
+        <h1 class="fade" data-d="1">Self-Improving <span class="accent">MCP</span></h1>
+        <p class="subtitle fade" data-d="2">Based on Real User Experience</p>
+        <div class="title-meta fade" data-d="3">
+          <span class="pill">Model Context Protocol</span>
+          <span class="pill">Feedback Loops</span>
+          <span class="pill">Autonomy</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2 — The Problem -->
+    <section class="slide" data-anim="up">
+      <div class="slide-inner">
+        <div class="kicker fade" data-d="0">THE PROBLEM</div>
+        <h2 class="fade" data-d="1">Static tools <span class="accent">don't learn</span></h2>
+        <div class="cols">
+          <div class="card fade" data-d="2">
+            <div class="card-ico">⛔</div>
+            <h3>Frozen behaviour</h3>
+            <p>An MCP server ships once and behaves the same forever — regardless of how people actually use it.</p>
+          </div>
+          <div class="card fade" data-d="3">
+            <div class="card-ico">🔁</div>
+            <h3>Repeated friction</h3>
+            <p>Users hit the same rough edges again and again. The tool never notices the pattern.</p>
+          </div>
+          <div class="card fade" data-d="4">
+            <div class="card-ico">🕳️</div>
+            <h3>Lost signal</h3>
+            <p>Every correction, retry and workaround is real feedback — and it evaporates instantly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3 — The Idea -->
+    <section class="slide" data-anim="up">
+      <div class="slide-inner center">
+        <div class="kicker fade" data-d="0">THE IDEA</div>
+        <h2 class="fade" data-d="1">What if the tool <span class="accent">watched itself</span> being used?</h2>
+        <p class="lead fade" data-d="2">
+          An MCP server that observes real interactions, detects where it fails the user,
+          and rewrites its own surface — descriptions, schemas, defaults, even new tools.
+        </p>
+        <div class="quote fade" data-d="3">
+          “The best documentation is written by watching where people get stuck.”
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4 — The Loop -->
+    <section class="slide" data-anim="up">
+      <div class="slide-inner">
+        <div class="kicker fade" data-d="0">THE LOOP</div>
+        <h2 class="fade" data-d="1">The self-improvement cycle</h2>
+        <div class="loop">
+          <div class="loop-step fade" data-d="2"><span class="loop-n">1</span><strong>Observe</strong><em>Capture real calls, args, errors & retries</em></div>
+          <div class="loop-arrow fade" data-d="3">→</div>
+          <div class="loop-step fade" data-d="4"><span class="loop-n">2</span><strong>Diagnose</strong><em>Find the highest-friction patterns</em></div>
+          <div class="loop-arrow fade" data-d="5">→</div>
+          <div class="loop-step fade" data-d="6"><span class="loop-n">3</span><strong>Propose</strong><em>Draft a change to the tool surface</em></div>
+          <div class="loop-arrow fade" data-d="7">→</div>
+          <div class="loop-step fade" data-d="8"><span class="loop-n">4</span><strong>Verify</strong><em>Human gate · then measure the result</em></div>
+        </div>
+        <div class="loop-back fade" data-d="9">↺ feeds back into Observe</div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5 — Signals -->
+    <section class="slide" data-anim="up">
+      <div class="slide-inner">
+        <div class="kicker fade" data-d="0">SIGNALS</div>
+        <h2 class="fade" data-d="1">What "real user experience" looks like</h2>
+        <div class="cols">
+          <div class="card fade" data-d="2">
+            <h3>Retries &amp; corrections</h3>
+            <p>Same tool called 3× with tweaked args → the schema or description is unclear.</p>
+          </div>
+          <div class="card fade" data-d="3">
+            <h3>Error clustering</h3>
+            <p>A validation error that fires for 40% of calls → a default is wrong.</p>
+          </div>
+          <div class="card fade" data-d="4">
+            <h3>Workarounds</h3>
+            <p>Users chaining two tools to fake a missing one → propose the missing tool.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6 — Demo / Code -->
+    <section class="slide" data-anim="up">
+      <div class="slide-inner">
+        <div class="kicker fade" data-d="0">IN PRACTICE</div>
+        <h2 class="fade" data-d="1">A proposed self-edit</h2>
+        <div class="code fade" data-d="2">
+<pre><span class="c-com">// observed: 41% of calls failed validation on `limit`</span>
+<span class="c-key">diff</span> tool: <span class="c-str">"search_records"</span> {
+<span class="c-add">+  limit: { type: "number", <span class="c-key">default</span>: 25 }   // was required, no default</span>
+<span class="c-add">+  description: "...; limit defaults to 25 if omitted"</span>
+}
+<span class="c-com">// result after ship: validation errors 41% → 3%</span></pre>
+        </div>
+        <p class="lead fade" data-d="3">Every change is gated, versioned, and measured against the signal that triggered it.</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 7 — Close -->
+    <section class="slide" data-anim="title">
+      <div class="slide-inner center">
+        <div class="kicker fade" data-d="0">WHERE THIS GOES</div>
+        <h2 class="fade" data-d="1">Tools that get <span class="accent">better the more they're used</span></h2>
+        <p class="lead fade" data-d="2">From static integrations → living software shaped by real experience.</p>
+        <div class="title-meta fade" data-d="3">
+          <span class="pill">Observe</span>
+          <span class="pill">Diagnose</span>
+          <span class="pill">Propose</span>
+          <span class="pill">Verify</span>
+        </div>
+        <div class="end-note fade" data-d="4">Thank you · Questions?</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Nav controls -->
+  <div class="nav">
+    <button class="nav-btn" id="prevBtn" aria-label="Previous slide">←</button>
+    <div class="dots" id="dots"></div>
+    <button class="nav-btn" id="nextBtn" aria-label="Next slide">→</button>
+  </div>
+
+  <div class="hint" id="hint">Use ← → arrows · Space · or click dots</div>
+
+  <script src="deck.js"></script>
+</body>
+</html>
