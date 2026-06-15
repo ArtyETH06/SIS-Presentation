@@ -160,6 +160,48 @@ p { color: var(--grey); line-height: 1.55; }
 
 .end-note { margin-top: 22px; font-family: var(--mono); color: var(--grey); letter-spacing: .06em; }
 
+/* ---------- Team slide ---------- */
+.team { display: flex; gap: 36px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
+.person-card {
+  width: 280px; background: #fff; border: 1px solid var(--line); border-radius: 22px;
+  padding: 30px 26px 26px; display: flex; flex-direction: column; align-items: center;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.person-card:hover { transform: translateY(-5px); box-shadow: 0 22px 50px rgba(8,8,8,.10); }
+
+.avatar {
+  width: 104px; height: 104px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-soft);
+  /* gradient ring */
+  border: 3px solid transparent;
+  background-image: linear-gradient(#fff, #fff), var(--gradient);
+  background-origin: border-box; background-clip: padding-box, border-box;
+  margin-bottom: 18px;
+}
+.avatar-fallback { font-family: var(--display); font-size: 40px; font-weight: 700; color: var(--grey-2); }
+
+.person-name { font-family: var(--display); font-size: 24px; font-weight: 700; letter-spacing: -.02em; margin-bottom: 4px; }
+.person-role { font-size: 14px; color: var(--grey); text-align: center; line-height: 1.4; margin-bottom: 20px; }
+.person-name--placeholder, .person-role--placeholder { color: var(--grey-2); }
+
+.qr {
+  width: 132px; height: 132px; padding: 10px; border-radius: 14px;
+  background: #fff; border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+}
+.qr svg { width: 100%; height: 100%; display: block; }
+.qr--placeholder {
+  border: 2px dashed var(--line); background: var(--bg-soft);
+}
+.qr-placeholder-glyph { font-size: 56px; color: var(--grey-2); opacity: .5; }
+
+.qr-label {
+  margin-top: 11px; font-family: var(--mono); font-size: 11px;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--grey);
+}
+.qr-label--placeholder { color: var(--grey-2); }
+
 /* ---------- HUD / progress / nav ---------- */
 .progress-track { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: var(--line-soft); z-index: 5; }
 .progress-fill { height: 100%; width: 0; background: var(--gradient); transition: width .5s ease; }
