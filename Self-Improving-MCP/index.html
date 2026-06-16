@@ -68,85 +68,141 @@
     <section class="slide" data-anim="up">
       <div class="slide-inner center">
         <div class="kicker fade" data-d="0">THE IDEA</div>
-        <h2 class="fade" data-d="1">What if the tool <span class="accent">watched itself</span> being used?</h2>
+        <h2 class="fade" data-d="1">The MCP <span class="accent">watches itself</span> being used — and fixes itself</h2>
         <p class="lead fade" data-d="2">
-          An MCP server that observes real interactions, detects where it fails the user,
-          and rewrites its own surface — descriptions, schemas, defaults, even new tools.
+          Every Leadbay MCP call ships telemetry to PostHog: the tool used, whether it
+          failed, the user's intent, and explicit frustration. Two skills turn that
+          stream into shipped fixes.
         </p>
-        <div class="quote fade" data-d="3">
-          “The best documentation is written by watching where people get stuck.”
+        <div class="title-meta fade" data-d="3">
+          <span class="pill">/mcp-analysis · diagnose + propose</span>
+          <span class="pill">/eval · prove it works</span>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 4 — The Loop -->
+    <!-- SLIDE 4 — The Pipeline -->
     <section class="slide" data-anim="up">
       <div class="slide-inner">
-        <div class="kicker fade" data-d="0">THE LOOP</div>
-        <h2 class="fade" data-d="1">The self-improvement cycle</h2>
+        <div class="kicker fade" data-d="0">THE PIPELINE</div>
+        <h2 class="fade" data-d="1">From real usage → a reviewed PR</h2>
         <div class="loop">
-          <div class="loop-step fade" data-d="2"><span class="loop-n">1</span><strong>Observe</strong><em>Capture real calls, args, errors & retries</em></div>
+          <div class="loop-step fade" data-d="2"><span class="loop-n">1</span><strong>PostHog</strong><em>Every call logs tool, ok/error, intent &amp; friction</em></div>
           <div class="loop-arrow fade" data-d="3">→</div>
-          <div class="loop-step fade" data-d="4"><span class="loop-n">2</span><strong>Diagnose</strong><em>Find the highest-friction patterns</em></div>
+          <div class="loop-step fade" data-d="4"><span class="loop-n">2</span><strong>/mcp-analysis</strong><em>Diagnose friction → propose fixes &amp; features</em></div>
           <div class="loop-arrow fade" data-d="5">→</div>
-          <div class="loop-step fade" data-d="6"><span class="loop-n">3</span><strong>Propose</strong><em>Draft a change to the tool surface</em></div>
+          <div class="loop-step fade" data-d="6"><span class="loop-n">3</span><strong>--improve</strong><em>Plan → build the fix on a branch</em></div>
           <div class="loop-arrow fade" data-d="7">→</div>
-          <div class="loop-step fade" data-d="8"><span class="loop-n">4</span><strong>Verify</strong><em>Human gate · then measure the result</em></div>
+          <div class="loop-step fade" data-d="8"><span class="loop-n">4</span><strong>/eval → draft&nbsp;PR</strong><em>Prove it, self-review, never auto-merge</em></div>
         </div>
-        <div class="loop-back fade" data-d="9">↺ feeds back into Observe</div>
+        <div class="loop-back fade" data-d="9">↺ next run reads the same telemetry to measure the result</div>
       </div>
     </section>
 
-    <!-- SLIDE 5 — Signals -->
+    <!-- SLIDE 5 — Capture (PostHog) -->
     <section class="slide" data-anim="up">
       <div class="slide-inner">
-        <div class="kicker fade" data-d="0">SIGNALS</div>
-        <h2 class="fade" data-d="1">What "real user experience" looks like</h2>
+        <div class="kicker fade" data-d="0">CAPTURE · POSTHOG</div>
+        <h2 class="fade" data-d="1">What we log on every MCP call</h2>
         <div class="cols">
           <div class="card fade" data-d="2">
-            <h3>Retries &amp; corrections</h3>
-            <p>Same tool called 3× with tweaked args → the schema or description is unclear.</p>
+            <div class="card-ico">🔧</div>
+            <h3>Tool &amp; outcome</h3>
+            <p><code>mcp tool called</code> — which tool, <code>ok=true/false</code>, error code, duration.</p>
           </div>
           <div class="card fade" data-d="3">
-            <h3>Error clustering</h3>
-            <p>A validation error that fires for 40% of calls → a default is wrong.</p>
+            <div class="card-ico">💬</div>
+            <h3>Intent</h3>
+            <p><code>triggered_by</code> — the user's verbatim prompt, so we know what they were trying to do.</p>
           </div>
           <div class="card fade" data-d="4">
-            <h3>Workarounds</h3>
-            <p>Users chaining two tools to fake a missing one → propose the missing tool.</p>
+            <div class="card-ico">😤</div>
+            <h3>Frustration</h3>
+            <p><code>mcp friction reported</code> — category, severity, the user's own words.</p>
           </div>
         </div>
+        <p class="lead fade" data-d="5">Reconstructed into per-user session traces: <em>what they asked → what ran → what broke → what they did next.</em></p>
       </div>
     </section>
 
-    <!-- SLIDE 6 — Demo / Code -->
+    <!-- SLIDE 6 — /mcp-analysis -->
+    <section class="slide" data-anim="up">
+      <div class="slide-inner">
+        <div class="kicker fade" data-d="0">SKILL · /mcp-analysis</div>
+        <h2 class="fade" data-d="1">Diagnose why · how · what</h2>
+        <div class="cols">
+          <div class="card fade" data-d="2">
+            <div class="card-ico">①</div>
+            <h3>Why are users frustrated?</h3>
+            <p>Cluster friction + failed sessions into themes — each tied to a verbatim quote or error trace.</p>
+          </div>
+          <div class="card fade" data-d="3">
+            <div class="card-ico">②</div>
+            <h3>How do we fix it?</h3>
+            <p>Confidence-ranked fixes, split <em>code-verifiable</em> vs <em>needs-investigation</em>.</p>
+          </div>
+          <div class="card fade" data-d="4">
+            <div class="card-ico">③</div>
+            <h3>What do they want?</h3>
+            <p>Features inferred only from ≥2 distinct users — each tagged composite vs granular.</p>
+          </div>
+        </div>
+        <p class="lead fade" data-d="5">An <span class="accent">adversarial verify pass</span> tries to refute every claim — uncited findings get dropped before they reach the report.</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 7 — /eval -->
+    <section class="slide" data-anim="up">
+      <div class="slide-inner">
+        <div class="kicker fade" data-d="0">SKILL · /eval</div>
+        <h2 class="fade" data-d="1">Prove the fix actually works</h2>
+        <div class="loop">
+          <div class="loop-step fade" data-d="2"><span class="loop-n">1</span><strong>Live session</strong><em>A real Claude run against the live Leadbay API</em></div>
+          <div class="loop-arrow fade" data-d="3">→</div>
+          <div class="loop-step fade" data-d="4"><span class="loop-n">2</span><strong>Invariant check</strong><em>Did the required tools actually get called?</em></div>
+          <div class="loop-arrow fade" data-d="5">→</div>
+          <div class="loop-step fade" data-d="6"><span class="loop-n">3</span><strong>Blind judge</strong><em>Fresh context scores 4 dimensions, 0–5</em></div>
+          <div class="loop-arrow fade" data-d="7">→</div>
+          <div class="loop-step fade" data-d="8"><span class="loop-n">4</span><strong>Scorecard</strong><em>Archived to mcp-dashboard, diffed over time</em></div>
+        </div>
+        <p class="lead fade" data-d="9">Inside <code>--improve</code>: the scenario must <span class="accent">FAIL on the broken code first</span> (proving it reproduces the bug), then PASS after the fix — 5/5/5/5 three times running.</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 8 — The scorecard / proof -->
     <section class="slide" data-anim="up">
       <div class="slide-inner">
         <div class="kicker fade" data-d="0">IN PRACTICE</div>
-        <h2 class="fade" data-d="1">A proposed self-edit</h2>
+        <h2 class="fade" data-d="1">One autonomous fix, gated end-to-end</h2>
         <div class="code fade" data-d="2">
-<pre><span class="c-com">// observed: 41% of calls failed validation on `limit`</span>
-<span class="c-key">diff</span> tool: <span class="c-str">"search_records"</span> {
-<span class="c-add">+  limit: { type: "number", <span class="c-key">default</span>: 25 }   // was required, no default</span>
-<span class="c-add">+  description: "...; limit defaults to 25 if omitted"</span>
-}
-<span class="c-com">// result after ship: validation errors 41% → 3%</span></pre>
+<pre><span class="c-com"># /mcp-analysis --days 7 --improve</span>
+<span class="c-com">#  → finding: leadbay_pull_leads fails when lens is ambiguous (P1)</span>
+
+eval --workflow 14  <span class="c-com"># BEFORE the fix, on broken code</span>
+  mission_match <span class="c-key">2</span>/5 · tool_selection <span class="c-key">3</span>/5   <span class="c-str">→ FAIL  (bug reproduced ✓)</span>
+
+<span class="c-add"># apply root-cause fix → packages/core/src/composite/pull_leads.ts</span>
+
+eval --workflow 14  <span class="c-com"># AFTER the fix</span>
+  mission_match <span class="c-str">5</span>/5 · instruction <span class="c-str">5</span>/5 · efficiency <span class="c-str">5</span>/5 · tools <span class="c-str">5</span>/5
+  required_calls <span class="c-str">✓</span> · stability <span class="c-str">3/3</span>          <span class="c-str">→ PASS</span>
+
+<span class="c-com"># → draft PR opened · self-reviewed with /review · never auto-merged</span></pre>
         </div>
-        <p class="lead fade" data-d="3">Every change is gated, versioned, and measured against the signal that triggered it.</p>
       </div>
     </section>
 
-    <!-- SLIDE 7 — Close -->
+    <!-- SLIDE 9 — Close -->
     <section class="slide" data-anim="title">
       <div class="slide-inner center">
         <div class="kicker fade" data-d="0">WHERE THIS GOES</div>
         <h2 class="fade" data-d="1">Tools that get <span class="accent">better the more they're used</span></h2>
-        <p class="lead fade" data-d="2">From static integrations → living software shaped by real experience.</p>
+        <p class="lead fade" data-d="2">From static integrations → an MCP shaped by how people actually use it.</p>
         <div class="title-meta fade" data-d="3">
-          <span class="pill">Observe</span>
-          <span class="pill">Diagnose</span>
-          <span class="pill">Propose</span>
-          <span class="pill">Verify</span>
+          <span class="pill">PostHog</span>
+          <span class="pill">/mcp-analysis</span>
+          <span class="pill">/eval</span>
+          <span class="pill">draft PR</span>
         </div>
         <div class="end-note fade" data-d="4">Thank you · Questions?</div>
       </div>

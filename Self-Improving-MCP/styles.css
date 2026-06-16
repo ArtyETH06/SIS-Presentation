@@ -117,6 +117,13 @@ p { color: var(--grey); line-height: 1.55; }
 }
 .card-ico { font-size: 28px; margin-bottom: 14px; }
 .card p { font-size: 15px; }
+/* inline code chips inside cards / lead text */
+code {
+  font-family: var(--mono); font-size: .86em;
+  background: var(--bg-band); color: var(--ink);
+  padding: 1px 6px; border-radius: 6px;
+}
+.lead code { background: var(--bg-soft); }
 
 /* ---------- Quote ---------- */
 .quote {
