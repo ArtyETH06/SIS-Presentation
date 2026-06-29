@@ -142,6 +142,17 @@ code {
 .shot figcaption strong { color: var(--ink); font-weight: 600; }
 .shot figcaption em { font-style: italic; }
 
+/* ---------- Real report screenshot slide ---------- */
+.slide:has(.report) .slide-inner { max-width: 1200px; }
+.report { margin: 8px 0 0; }
+.report img {
+  width: 100%; height: auto; display: block; max-height: 62vh;
+  object-fit: contain; object-position: top;
+  border-radius: 14px; border: 1px solid var(--line);
+  box-shadow: 0 24px 60px rgba(8,8,8,.14);
+}
+.report-cap { margin-top: 16px; font-size: 15px; color: var(--grey); }
+
 /* ---------- Quote ---------- */
 .quote {
   margin-top: 14px; font-family: var(--display);

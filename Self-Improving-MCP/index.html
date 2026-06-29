@@ -166,26 +166,15 @@
       </div>
     </section>
 
-    <!-- SLIDE 8 — The scorecard / proof -->
+    <!-- SLIDE 8 — Real /mcp-analysis report -->
     <section class="slide" data-anim="up">
       <div class="slide-inner">
-        <div class="kicker fade" data-d="0">IN PRACTICE</div>
-        <h2 class="fade" data-d="1">One autonomous fix, gated end-to-end</h2>
-        <div class="code fade" data-d="2">
-<pre><span class="c-com"># /mcp-analysis --days 7 --improve</span>
-<span class="c-com">#  → finding: leadbay_pull_leads fails when lens is ambiguous (P1)</span>
-
-eval --workflow 14  <span class="c-com"># BEFORE the fix, on broken code</span>
-  mission_match <span class="c-key">2</span>/5 · tool_selection <span class="c-key">3</span>/5   <span class="c-str">→ FAIL  (bug reproduced ✓)</span>
-
-<span class="c-add"># apply root-cause fix → packages/core/src/composite/pull_leads.ts</span>
-
-eval --workflow 14  <span class="c-com"># AFTER the fix</span>
-  mission_match <span class="c-str">5</span>/5 · instruction <span class="c-str">5</span>/5 · efficiency <span class="c-str">5</span>/5 · tools <span class="c-str">5</span>/5
-  required_calls <span class="c-str">✓</span> · stability <span class="c-str">3/3</span>          <span class="c-str">→ PASS</span>
-
-<span class="c-com"># → draft PR opened · self-reviewed with /review · never auto-merged</span></pre>
-        </div>
+        <div class="kicker fade" data-d="0">IN PRACTICE · A REAL RUN</div>
+        <h2 class="fade" data-d="1">What <code>/mcp-analysis</code> actually produced</h2>
+        <figure class="report fade" data-d="2">
+          <img src="mcp-analysis-report.png" alt="Real /mcp-analysis report — last 7 days" />
+        </figure>
+        <p class="report-cap fade" data-d="3">Live run · 856 calls · 15 users · adversarially verified · prioritised into P1/P2/P3 fixes &amp; feature signals.</p>
       </div>
     </section>
 
