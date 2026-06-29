@@ -103,23 +103,20 @@
     <section class="slide" data-anim="up">
       <div class="slide-inner">
         <div class="kicker fade" data-d="0">CAPTURE · POSTHOG</div>
-        <h2 class="fade" data-d="1">What we log on every MCP call</h2>
-        <div class="cols">
-          <div class="card fade" data-d="2">
-            <div class="card-ico">🔧</div>
-            <h3>Tool &amp; outcome</h3>
-            <p><code>mcp tool called</code> — which tool, <code>ok=true/false</code>, error code, duration.</p>
-          </div>
-          <div class="card fade" data-d="3">
-            <div class="card-ico">💬</div>
-            <h3>Intent</h3>
-            <p><code>triggered_by</code> — the user's verbatim prompt, so we know what they were trying to do.</p>
-          </div>
-          <div class="card fade" data-d="4">
-            <div class="card-ico">😤</div>
-            <h3>Frustration</h3>
-            <p><code>mcp friction reported</code> — category, severity, the user's own words.</p>
-          </div>
+        <h2 class="fade" data-d="1">Every MCP call, logged as it really happened</h2>
+        <div class="evidence">
+          <figure class="shot fade" data-d="2">
+            <img src="posthog-friction.png" alt="PostHog friction report — LOW severity" />
+            <figcaption><strong>Friction report</strong> — severity, category &amp; the user's own words</figcaption>
+          </figure>
+          <figure class="shot fade" data-d="3">
+            <img src="posthog-lens.png" alt="PostHog tool call — leadbay_new_lens API_ERROR with intent" />
+            <figcaption><strong>Tool · outcome · intent</strong> — <code>leadbay_new_lens</code> → <code>API_ERROR</code>, with the prompt that triggered it</figcaption>
+          </figure>
+          <figure class="shot fade" data-d="4">
+            <img src="posthog-missing.png" alt="PostHog friction report — HIGH missing_capability" />
+            <figcaption><strong>Missing capability</strong> — HIGH-severity frustration: <em>“no I told you there is not any more this”</em></figcaption>
+          </figure>
         </div>
         <p class="lead fade" data-d="5">Reconstructed into per-user session traces: <em>what they asked → what ran → what broke → what they did next.</em></p>
       </div>
@@ -230,8 +227,8 @@ eval --workflow 14  <span class="c-com"># AFTER the fix</span>
 
           <!-- Milan -->
           <div class="person-card fade" data-d="3">
-            <div class="avatar" aria-label="Milan photo placeholder">
-              <span class="avatar-fallback">M</span>
+            <div class="avatar avatar--photo">
+              <img src="milan.jpeg" alt="Milan" class="avatar-img avatar-img--center" />
             </div>
             <h3 class="person-name">Milan</h3>
             <p class="person-role">CTO @ Leadbay</p>
