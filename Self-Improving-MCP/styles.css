@@ -211,15 +211,15 @@ code {
   margin-bottom: clamp(18px, 2.6vh, 30px);
 }
 .avatar-fallback { font-family: var(--display); font-size: clamp(56px, 8vh, 84px); font-weight: 700; color: var(--grey-2); }
-/* photo avatar: image fills the inside of the gradient ring.
-   The ring lives on .avatar's border (gradient via background-clip);
-   the img is an inset round layer on top, so the ring stays visible. */
-.avatar--photo { padding: 0; }
+/* photo avatar: a white inset sits between the gradient ring and the photo,
+   so the image is pulled in from the edge and reads de-zoomed (not a tight
+   edge-to-edge close-up). The photo itself fills its inner round area. */
+.avatar--photo { padding: 7px; background-color: #fff; }
 .avatar-img {
   width: 100%; height: 100%; border-radius: 50%;
-  object-fit: cover; object-position: 38% 28%; display: block;
+  object-fit: cover; object-position: center 22%; display: block;
 }
-.avatar-img--center { object-position: 50% 35%; }
+.avatar-img--center { object-position: center 30%; }
 
 .person-name { font-family: var(--display); font-size: clamp(30px, 3.4vw, 42px); font-weight: 700; letter-spacing: -.025em; margin-bottom: 6px; }
 .person-role { font-size: clamp(16px, 1.6vw, 20px); color: var(--grey); text-align: center; line-height: 1.4; margin-bottom: clamp(22px, 3vh, 34px); }
