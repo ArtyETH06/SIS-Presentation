@@ -170,7 +170,54 @@
       </div>
     </section>
 
-    <!-- SLIDE 9 — Close -->
+    <!-- SLIDE 9 — From diagnosis to action: --improve -->
+    <section class="slide" data-anim="up">
+      <div class="slide-inner">
+        <h2 class="fade" data-d="1">A finding becomes a fix — <code>--improve</code></h2>
+        <p class="lead fade" data-d="2">Pick the top finding, and the skill builds it — plan-first, gated, never straight to code.</p>
+        <div class="loop">
+          <div class="loop-step fade" data-d="3"><span class="loop-n">1</span><strong>Plan (read-only)</strong><em>Investigate root cause → root cause, files to change, eval scenario, risk</em></div>
+          <div class="loop-arrow fade" data-d="4">→</div>
+          <div class="loop-step fade" data-d="5"><span class="loop-n">2</span><strong>Approve</strong><em>Show the plan; no code is written until it's approved</em></div>
+          <div class="loop-arrow fade" data-d="6">→</div>
+          <div class="loop-step fade" data-d="7"><span class="loop-n">3</span><strong>Build (isolated)</strong><em>Worktree branch · add the eval scenario first · apply the fix</em></div>
+        </div>
+        <p class="lead fade" data-d="8"><span class="accent">Before-fix eval must FAIL</span> (proving the scenario reproduces the bug) — only then does a fix count.</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 10 — Self-eval (real scorecard) -->
+    <section class="slide" data-anim="up">
+      <div class="slide-inner">
+        <h2 class="fade" data-d="1">It grades its own work — <code>/eval</code></h2>
+        <figure class="report fade" data-d="2">
+          <img src="eval-scorecard.png" alt="Real /eval scorecard — 3 workflows, 5/5/5/5, all invariants pass" />
+        </figure>
+        <p class="report-cap fade" data-d="3">Real eval run · the fix must reach <span class="accent">5/5/5/5 three times running</span> before a PR is even opened.</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 11 — Reviewed draft PR -->
+    <section class="slide" data-anim="up">
+      <div class="slide-inner">
+        <h2 class="fade" data-d="1">Then it ships a <span class="accent">reviewed draft PR</span></h2>
+        <div class="code fade" data-d="2">
+<pre><span class="c-com"># the build subagent, after eval goes green:</span>
+<span class="c-key">branch</span>   ArtyETH06/mcp-fix-&lt;slug&gt;     <span class="c-com"># worktree-isolated</span>
+<span class="c-key">eval</span>     before <span class="c-str">FAIL</span> → after <span class="c-str">PASS</span>      <span class="c-com"># bug proven, then fixed</span>
+<span class="c-key">tests</span>    pnpm -r test + typecheck     <span class="c-str">✓ green</span>
+<span class="c-key">pr</span>       gh pr create <span class="c-str">--draft</span>          <span class="c-com"># links the finding + eval verdicts</span>
+
+<span class="c-com"># self-review, on its own PR:</span>
+<span class="c-key">review</span>   /review → apply AUTO-FIX only    <span class="c-com"># judgment calls left for a human</span>
+         re-run eval                     <span class="c-str">✓ still green</span>
+</pre>
+        </div>
+        <p class="lead fade" data-d="3"><span class="accent">Never merges. Never marks ready. Never deploys.</span> A human reviews every draft PR.</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 12 — Close -->
     <section class="slide" data-anim="title">
       <div class="slide-inner center">
         <h2 class="fade" data-d="1">Tools that get <span class="accent">better the more they're used</span></h2>
