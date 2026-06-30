@@ -253,6 +253,35 @@ code {
 }
 .qr-label--placeholder { color: var(--grey-2); }
 
+/* ---------- Workshop invite (team slide footer) ---------- */
+.workshop {
+  margin-top: clamp(26px, 4vh, 44px); padding-top: clamp(22px, 3vh, 34px);
+  border-top: 1px solid var(--line);
+  display: flex; flex-direction: column; align-items: center;
+}
+.workshop-title {
+  font-family: var(--display); font-size: clamp(18px, 2vw, 24px); font-weight: 700;
+  letter-spacing: -.02em; color: var(--ink); margin-bottom: 18px;
+}
+.workshop-qrs { display: flex; gap: clamp(28px, 5vw, 56px); justify-content: center; }
+.workshop-card { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.workshop-card figcaption {
+  font-family: var(--mono); font-size: 12px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--grey);
+}
+.qr--sm { width: clamp(96px, 12vh, 132px); padding: 9px; border-radius: 12px; }
+
+/* The team slide now also carries the workshop invite — compress the founder
+   cards so everything fits one viewport without clipping. Scoped to this slide. */
+.slide:has(.workshop) .team { margin-top: clamp(8px, 1.6vh, 18px); gap: clamp(24px, 4vw, 52px); }
+.slide:has(.workshop) .person-card { padding: clamp(20px, 2.4vh, 30px) clamp(24px, 2.6vw, 40px); }
+.slide:has(.workshop) .avatar { width: clamp(104px, 13vh, 132px); margin-bottom: clamp(12px, 1.6vh, 18px); }
+.slide:has(.workshop) .person-name { font-size: clamp(24px, 2.6vw, 30px); }
+.slide:has(.workshop) .person-role { font-size: clamp(13px, 1.3vw, 16px); margin-bottom: clamp(14px, 1.8vh, 22px); }
+.slide:has(.workshop) .qr { width: clamp(120px, 14vh, 156px); padding: 11px; }
+.slide:has(.workshop) .qr-label { margin-top: 9px; }
+.slide:has(.workshop) h2 { margin-bottom: clamp(6px, 1.2vh, 14px); }
+
 /* ---------- HUD / progress / nav ---------- */
 .progress-track { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: var(--line-soft); z-index: 5; }
 .progress-fill { height: 100%; width: 0; background: var(--gradient); transition: width .5s ease; }
