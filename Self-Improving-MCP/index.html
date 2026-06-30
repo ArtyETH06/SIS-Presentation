@@ -197,27 +197,7 @@
       </div>
     </section>
 
-    <!-- SLIDE 11 — Reviewed draft PR -->
-    <section class="slide" data-anim="up">
-      <div class="slide-inner">
-        <h2 class="fade" data-d="1">Then it ships a <span class="accent">reviewed draft PR</span></h2>
-        <div class="code fade" data-d="2">
-<pre><span class="c-com"># the build subagent, after eval goes green:</span>
-<span class="c-key">branch</span>   ArtyETH06/mcp-fix-&lt;slug&gt;     <span class="c-com"># worktree-isolated</span>
-<span class="c-key">eval</span>     before <span class="c-str">FAIL</span> → after <span class="c-str">PASS</span>      <span class="c-com"># bug proven, then fixed</span>
-<span class="c-key">tests</span>    pnpm -r test + typecheck     <span class="c-str">✓ green</span>
-<span class="c-key">pr</span>       gh pr create <span class="c-str">--draft</span>          <span class="c-com"># links the finding + eval verdicts</span>
-
-<span class="c-com"># self-review, on its own PR:</span>
-<span class="c-key">review</span>   /review → apply AUTO-FIX only    <span class="c-com"># judgment calls left for a human</span>
-         re-run eval                     <span class="c-str">✓ still green</span>
-</pre>
-        </div>
-        <p class="lead fade" data-d="3"><span class="accent">Never merges. Never marks ready. Never deploys.</span> A human reviews every draft PR.</p>
-      </div>
-    </section>
-
-    <!-- SLIDE 12 — Close -->
+    <!-- SLIDE 11 — Close -->
     <section class="slide" data-anim="title">
       <div class="slide-inner center">
         <h2 class="fade" data-d="1">Tools that get <span class="accent">better the more they're used</span></h2>
