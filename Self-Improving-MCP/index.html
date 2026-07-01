@@ -142,24 +142,7 @@
       </div>
     </section>
 
-    <!-- SLIDE 7 — /eval -->
-    <section class="slide" data-anim="up">
-      <div class="slide-inner">
-        <h2 class="fade" data-d="1">Prove the fix actually works</h2>
-        <div class="loop">
-          <div class="loop-step fade" data-d="2"><span class="loop-n">1</span><strong>Live session</strong><em>A real Claude run against the live Leadbay API</em></div>
-          <div class="loop-arrow fade" data-d="3">→</div>
-          <div class="loop-step fade" data-d="4"><span class="loop-n">2</span><strong>Invariant check</strong><em>Did the required tools actually get called?</em></div>
-          <div class="loop-arrow fade" data-d="5">→</div>
-          <div class="loop-step fade" data-d="6"><span class="loop-n">3</span><strong>Blind judge</strong><em>Fresh context scores 4 dimensions, 0–5</em></div>
-          <div class="loop-arrow fade" data-d="7">→</div>
-          <div class="loop-step fade" data-d="8"><span class="loop-n">4</span><strong>Scorecard</strong><em>Archived to mcp-dashboard, diffed over time</em></div>
-        </div>
-        <p class="lead fade" data-d="9">Inside <code>--improve</code>: the scenario must <span class="accent">FAIL on the broken code first</span> (proving it reproduces the bug), then PASS after the fix — 5/5/5/5 three times running.</p>
-      </div>
-    </section>
-
-    <!-- SLIDE 8 — Real /mcp-analysis report -->
+    <!-- SLIDE 7 — Real /mcp-analysis report -->
     <section class="slide" data-anim="up">
       <div class="slide-inner">
         <h2 class="fade" data-d="1">What <code>/mcp-analysis</code> actually produced</h2>
@@ -183,6 +166,23 @@
           <div class="loop-step fade" data-d="7"><span class="loop-n">3</span><strong>Build (isolated)</strong><em>Worktree branch · add the eval scenario first · apply the fix</em></div>
         </div>
         <p class="lead fade" data-d="8"><span class="accent">Before-fix eval must FAIL</span> (proving the scenario reproduces the bug) — only then does a fix count.</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 9 — /eval (explainer) -->
+    <section class="slide" data-anim="up">
+      <div class="slide-inner">
+        <h2 class="fade" data-d="1">Prove the fix actually works</h2>
+        <div class="loop">
+          <div class="loop-step fade" data-d="2"><span class="loop-n">1</span><strong>Live session</strong><em>A real Claude run against the live Leadbay API</em></div>
+          <div class="loop-arrow fade" data-d="3">→</div>
+          <div class="loop-step fade" data-d="4"><span class="loop-n">2</span><strong>Invariant check</strong><em>Did the required tools actually get called?</em></div>
+          <div class="loop-arrow fade" data-d="5">→</div>
+          <div class="loop-step fade" data-d="6"><span class="loop-n">3</span><strong>Blind judge</strong><em>Fresh context scores 4 dimensions, 0–5</em></div>
+          <div class="loop-arrow fade" data-d="7">→</div>
+          <div class="loop-step fade" data-d="8"><span class="loop-n">4</span><strong>Scorecard</strong><em>Archived to mcp-dashboard, diffed over time</em></div>
+        </div>
+        <p class="lead fade" data-d="9">Inside <code>--improve</code>: the scenario must <span class="accent">FAIL on the broken code first</span> (proving it reproduces the bug), then PASS after the fix — 5/5/5/5 three times running.</p>
       </div>
     </section>
 
